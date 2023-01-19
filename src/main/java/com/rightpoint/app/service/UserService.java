@@ -34,7 +34,9 @@ public class UserService {
   }
 
   public void bulkUpdate(List<User> users) {
-    throw new UnsupportedOperationException();
+    for(User user : users) {
+      userDao.update(user);
+    }
   }
 
 }
