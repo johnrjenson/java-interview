@@ -14,27 +14,27 @@ import java.util.Map;
 @Service
 public class UserDao {
 
-  private final Map<Long, User> users = new HashMap<>();
+  private final Map<Long, User> userMap = new HashMap<>();
 
   public User getById(Long id) {
-    return users.get(id);
+    return userMap.get(id);
   }
 
   public void insert(User user) {
     user.setId(getNextId());
-    users.put(user.getId(), user);
+    userMap.put(user.getId(), user);
   }
 
   public void update(User user) {
-    users.put(user.getId(), user);
+    userMap.put(user.getId(), user);
   }
 
   public void delete(Long id) {
-    users.remove(id);
+    userMap.remove(id);
   }
 
   public Collection<User> getAll() {
-    return users.values();
+    return userMap.values();
   }
 
   private long nextId = 1;
